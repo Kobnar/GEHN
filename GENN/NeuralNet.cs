@@ -5,7 +5,7 @@ namespace GENN
 {
 	public class NeuralNet
 	{
-		public NeuralNet (int inputCount, int hiddenWidth, int hiddenDepth, int outputCount)
+		public NeuralNet (int inputCount, int outputCount, int hiddenWidth, int hiddenDepth)
 		{
 			// Allocate memory for each array
 			_InputLayer = new Input[inputCount];
