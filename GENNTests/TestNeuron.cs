@@ -65,7 +65,7 @@ namespace GENNTests
 		{
 			GENN.Neuron female_neuron = new GENN.Neuron (inputs);
 			GENN.Neuron male_neuron = new GENN.Neuron (inputs);
-			GENN.Neuron child_neuron = new GENN.Neuron (female_neuron, male_neuron);
+			GENN.Neuron child_neuron = new GENN.Neuron (inputs, female_neuron, male_neuron, 1);
 			Assert.AreEqual (female_neuron.Inputs, child_neuron.Inputs);
 		}
 
@@ -74,7 +74,7 @@ namespace GENNTests
 		{
 			GENN.Neuron female_neuron = new GENN.Neuron (inputs);
 			GENN.Neuron male_neuron = new GENN.Neuron (inputs);
-			GENN.Neuron child_neuron = new GENN.Neuron (female_neuron, male_neuron);
+			GENN.Neuron child_neuron = new GENN.Neuron (inputs, female_neuron, male_neuron, 1);
 			Assert.IsNotNull (child_neuron.Weights);
 		}
 
@@ -83,7 +83,7 @@ namespace GENNTests
 		{
 			GENN.Neuron female_neuron = new GENN.Neuron (inputs);
 			GENN.Neuron male_neuron = new GENN.Neuron (inputs);
-			GENN.Neuron child_neuron = new GENN.Neuron (female_neuron, male_neuron);
+			GENN.Neuron child_neuron = new GENN.Neuron (inputs, female_neuron, male_neuron, 1);
 			Assert.IsNotNull (child_neuron.Bias);
 		}
 

@@ -36,6 +36,8 @@
   <ItemGroup>
     <Compile Include="TestNeuron.cs" />
     <Compile Include="TestInput.cs" />
+    <Compile Include="TestGenePool.cs" />
+    <Compile Include="TestNeuralNet.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

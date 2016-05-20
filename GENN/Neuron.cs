@@ -11,7 +11,6 @@ namespace GENN
 	public class Neuron : Input
 	{
 		private static Random _Rand = new Random ();
-		public static double ErrorThreshold = 0.99;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GENN.Neuron"/> class using a layer of root
@@ -25,30 +24,18 @@ namespace GENN
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="GENN.Neuron"/> class using a layer of other
-		/// <see cref="GENN.Neuron"/> nodes.
-		/// </summary>
-		/// <param name="inputs">Inputs.</param>
-		public Neuron (Neuron[] inputs)
-		{
-			// Copy a reference to the input array
-			_Inputs = inputs;
-			Randomize ();
-		}
-
-		/// <summary>
 		/// Initializes a new instance of the <see cref="GENN.Neuron"/> class by "splicing" the "genes" (properties)
 		/// of each neuron.
 		/// </summary>
 		/// <param name="mother">Mother.</param>
 		/// <param name="father">Father.</param>
-		public Neuron(Neuron mother, Neuron father)
+		public Neuron(Input[] inputs, Neuron mother, Neuron father, double errorThreshold)
 		{
 			// Make a simple array of the two parents
 			Neuron[] parents = new Neuron[2] { mother, father };
 
 			// Copy inputs and allocate memory for weights
-			_Inputs = mother.Inputs;
+			_Inputs = inputs;
 			_Weights = new double[Inputs.Length];
 
 			// Splice genes
@@ -60,9 +47,9 @@ namespace GENN
 
 				// Splice properties
 				if (i < Inputs.Length)
-					_Weights [i] = CopyGene (parents[p].Weights [i]);
+					_Weights [i] = CopyGene (parents[p].Weights [i], errorThreshold);
 				else
-					_Bias = CopyGene (parents[p].Bias);
+					_Bias = CopyGene (parents[p].Bias, errorThreshold);
 			}
 		}
 
@@ -85,9 +72,9 @@ namespace GENN
 		/// </summary>
 		/// <returns>The gene.</returns>
 		/// <param name="value">Value.</param>
-		private double CopyGene(double value)
+		private double CopyGene(double value, double errorThreshold)
 		{
-			if (_Rand.NextDouble () > ErrorThreshold)
+			if (_Rand.NextDouble () > errorThreshold)
 				return _Rand.NextDouble ();
 			else
 				return value;
