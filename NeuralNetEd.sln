@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetEd", "NeuralNetEd\NeuralNetEd.csproj", "{0DFCA368-63E2-4B32-93C8-2A78FA9CE146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GENN", "GENN\GENN.csproj", "{A8060BBA-D9AC-4E0D-8620-4085B76526E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GENNTests", "GENNTests\GENNTests.csproj", "{8FD332DF-3C8B-4E45-8FB2-7F6F7020983D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DFCA368-63E2-4B32-93C8-2A78FA9CE146}.Debug|x86.ActiveCfg = Debug|x86
+		{0DFCA368-63E2-4B32-93C8-2A78FA9CE146}.Debug|x86.Build.0 = Debug|x86
+		{0DFCA368-63E2-4B32-93C8-2A78FA9CE146}.Release|x86.ActiveCfg = Release|x86
+		{0DFCA368-63E2-4B32-93C8-2A78FA9CE146}.Release|x86.Build.0 = Release|x86
+		{8FD332DF-3C8B-4E45-8FB2-7F6F7020983D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8FD332DF-3C8B-4E45-8FB2-7F6F7020983D}.Debug|x86.Build.0 = Debug|Any CPU
+		{8FD332DF-3C8B-4E45-8FB2-7F6F7020983D}.Release|x86.ActiveCfg = Release|Any CPU
+		{8FD332DF-3C8B-4E45-8FB2-7F6F7020983D}.Release|x86.Build.0 = Release|Any CPU
+		{A8060BBA-D9AC-4E0D-8620-4085B76526E2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A8060BBA-D9AC-4E0D-8620-4085B76526E2}.Debug|x86.Build.0 = Debug|Any CPU
+		{A8060BBA-D9AC-4E0D-8620-4085B76526E2}.Release|x86.ActiveCfg = Release|Any CPU
+		{A8060BBA-D9AC-4E0D-8620-4085B76526E2}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
