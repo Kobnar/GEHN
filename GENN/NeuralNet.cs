@@ -5,16 +5,26 @@ namespace GENN
 {
 	public class NeuralNet
 	{
-		public NeuralNet (int inputCount, int outputCount, int hiddenWidth, int hiddenDepth)
+		// Private data stores
+		private Input[] _InputLayer;
+		private Neuron[,] _HiddenLayers;
+		private Neuron[] _OutputLayer;
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GENN.NeuralNet"/> class.
+		/// </summary>
+		/// <param name="inputLayer">Input layer.</param>
+		/// <param name="outputCount">Output count.</param>
+		/// <param name="hiddenWidth">Hidden width.</param>
+		/// <param name="hiddenDepth">Hidden depth.</param>
+		public NeuralNet (Input[] inputLayer, int outputCount, int hiddenWidth, int hiddenDepth)
 		{
+			// Copy reference to input layer
+			_InputLayer = inputLayer;
+
 			// Allocate memory for each array
-			_InputLayer = new Input[inputCount];
 			_HiddenLayers = new Neuron[hiddenDepth, hiddenWidth];
 			_OutputLayer = new Neuron[outputCount];
-
-			// Instantiate input array
-			for (int i = 0; i < inputCount; i++)
-				_InputLayer[i] = new Input();
 
 			// Intantiate network
 			for (int d = 0; d < hiddenDepth; d++)
@@ -26,31 +36,8 @@ namespace GENN
 				_OutputLayer [o] = new Neuron (_HiddenLayers[hiddenDepth - 1]);
 		}
 
-		private Input[] _InputLayer;
-		private Neuron[,] _HiddenLayers;
-		private Neuron[] _OutputLayer;
-
 		/// <summary>
-		/// The input values of the <see cref="NeuralNet"/>.
-		/// </summary>
-		public decimal[] Input
-		{
-			get
-			{
-				decimal[] input = new decimal[_InputLayer.Length];
-				for (int i = 0; i < _InputLayer.Length; i++)
-					input [i] = _InputLayer [i].Value;
-				return input;
-			}
-			set
-			{
-				for (int i = 0; i < value.Length; i++)
-					_InputLayer [i].Value = value [i];
-			}
-		}
-
-		/// <summary>
-		/// The output values of the <see cref="NeuralNet"/>.
+		/// The output values of the <see cref="NeuralNet"/> as an array of decimal values.
 		/// </summary>
 		public decimal[] Output
 		{
@@ -73,27 +60,6 @@ namespace GENN
 			Input = input;
 			return Output;
 		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="GENN.Neuron"/> class by "breeding" with another
-		/// <see cref="GENN.Neuron"/>.
-		/// </summary>
-		/// <param name="mate">Mate.</param>
-		public NeuralNet BreedWith(NeuralNet mate)
-		{
-			//return new NeuralNet (this, mate);
-			return new NeuralNet (0, 0, 0, 0);
-		}
-
-		/// <summary>
-		/// The fitness preference of this particular neural net (percentile of the stack?)
-		/// </summary>
-		public double Preference;
-
-		/// <summary>
-		/// The gender of this particular nural net. Neural nets will not breed with same-sexed neural nets (mostly).
-		/// </summary>
-		public double Gender;
 	}
 }
 
