@@ -27,6 +27,7 @@ namespace GENN
 		/// Initializes a new instance of the <see cref="GENN.Neuron"/> class by "splicing" the "genes" (properties)
 		/// of each neuron.
 		/// </summary>
+		/// <param name="inputs">Input layer.</param> 
 		/// <param name="mother">Mother.</param>
 		/// <param name="father">Father.</param>
 		public Neuron(Input[] inputs, Neuron mother, Neuron father, double errorThreshold)
@@ -72,6 +73,7 @@ namespace GENN
 		/// </summary>
 		/// <returns>The gene.</returns>
 		/// <param name="value">Value.</param>
+		/// <param name="errorThreshold">Error threshold.</param>
 		private double CopyGene(double value, double errorThreshold)
 		{
 			if (_Rand.NextDouble () > errorThreshold)
@@ -114,7 +116,7 @@ namespace GENN
 				for (int i = 0; i < Inputs.Length; i++)
 					activation += Inputs [i].Output * Weights [i];
 				activation += Bias;
-				return 1 / (1 + Math.Exp (activation));
+				return 1 / (1 + Math.Exp (-activation));
 			}
 		}
 	}

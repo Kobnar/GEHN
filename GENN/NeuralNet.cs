@@ -17,9 +17,8 @@ namespace GENN
 		/// Initializes a new instance of the <see cref="GENN.NeuralNet"/> class.
 		/// </summary>
 		/// <param name="inputLayer">Input layer.</param>
+		/// <param name="hiddenDimensions">Hidden dimensions (length of array represents depth).</param>
 		/// <param name="outputCount">Output count.</param>
-		/// <param name="hiddenWidth">Hidden width.</param>
-		/// <param name="hiddenDepth">Hidden depth.</param>
 		public NeuralNet (Input[] inputLayer, int[] hiddenDimensions, int outputCount)
 		{
 			// Copy reference to input layer
