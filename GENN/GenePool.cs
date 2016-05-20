@@ -10,7 +10,7 @@ namespace GENN
 	public class GenePool
 	{
 		// Private data stores
-		private int _Generations;
+		private int _Generation;
 		private Input[] InputLayer;
 		private NeuralNet[] Pool;
 
@@ -46,7 +46,8 @@ namespace GENN
 		public double[] TargetOutput;
 
 		/// <summary>
-		/// Checks the error of a "candidate" <see cref="NeuralNetwork"/> output.
+		/// Checks the error of a "candidate" <see cref="NeuralNetwork"/> output by averaging the difference between
+		/// <see cref="TargetOutput"/> and the candidate's <see cref="Output"/>.
 		/// </summary>
 		/// <returns>The error.</returns>
 		/// <param name="candidate">Candidate.</param>
@@ -61,11 +62,24 @@ namespace GENN
 			return errors.Average ();
 		}
 
-		public int Generations
+		private void Sort()
+		{
+			Pool.OrderBy (net => net.Output);
+		}
+
+		public double NextGeneration()
+		{
+			_Generation++;
+			KillOff ();
+			Breed ();
+			return CheckError (BestCandidate);
+		}
+
+		public int Generation
 		{
 			get
 			{
-				return _Generations;
+				return _Generation;
 			}
 		}
 
