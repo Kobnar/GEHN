@@ -29,7 +29,7 @@ namespace GENN
 		/// Get/Set the input layer of the <see cref="GenePool"/>.
 		/// </summary>
 		/// <value>The input.</value>
-		public double[] Input
+		public double[] Inputs
 		{
 			get
 			{
@@ -37,11 +37,6 @@ namespace GENN
 				for (int i = 0; i < InputLayer.Length; i++)
 					input [i] = InputLayer [i].Value;
 				return input;
-			}
-			set
-			{
-				for (int i = 0; i < value.Length; i++)
-					InputLayer [i].Value = value [i];
 			}
 		}
 
