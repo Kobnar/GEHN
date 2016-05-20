@@ -33,7 +33,7 @@ namespace GENN
 		/// <summary>
 		/// The input values of the <see cref="NeuralNet"/>.
 		/// </summary>
-		private decimal[] Input
+		public decimal[] Input
 		{
 			get
 			{
@@ -52,7 +52,7 @@ namespace GENN
 		/// <summary>
 		/// The output values of the <see cref="NeuralNet"/>.
 		/// </summary>
-		private decimal[] Output
+		public decimal[] Output
 		{
 			get
 			{
